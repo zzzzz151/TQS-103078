@@ -1,0 +1,6 @@
+The functions with low coverage are fromArray(int[]), hashCode(), size(), intersects(BoundedSetOfNaturals).
+They all have 0% coverage.
+Only the functions iterator(), contains(integer), BoundedSetOfNaturals(int), add(int[]) had all possible branches covered.
+
+What kind of unit test are worth writing for proper validation of BoundedSetOfNaturals?
+Unit tests for add(int), add(int[]), fromArray(int[]), size(), intersects(BoundedSetOfNaturals), contains().

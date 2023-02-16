@@ -1,0 +1,2 @@
+The coverage after is much better.
+Now, all relevant functions in BoundedSetOfNaturals have 100% coverage.
