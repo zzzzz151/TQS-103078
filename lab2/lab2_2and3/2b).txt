@@ -1,2 +1,2 @@
 The SuT is AddressResolver, more specifically findAddressForLocation().
-The service to mock is AddressResolver.
+The service to mock is TqsBasicHttpClient.
