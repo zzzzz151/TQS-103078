@@ -17,6 +17,7 @@ private EmployeeRepository employeeRepository;
 **c) What is the difference between standard @Mock and @MockBean?**
 
 @Mock is the default way to mock something in a java app.
+
 @MockBean is used to mock something in a Spring Boot app; since the classes are often special to Spring's framework (like @Service), we need to mock in a different way that the framework understands.
 
 
@@ -30,6 +31,9 @@ Instead of using application.properties for testing, we can use a variant of it 
 with SpringBoot. Which are the main/key differences?**
 
 C runs fast and light tests and no database or repository is involved.
+
 D and E are the slowest tests because they load all Spring Boot context with @SpringBootTest.
+
 In E, serialization and unserialization of data is tested, unlike in D.
+
 D mocks a servlet while in E we have an actual REST client.
