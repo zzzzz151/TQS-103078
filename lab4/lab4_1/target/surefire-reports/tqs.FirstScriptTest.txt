@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: tqs.FirstScriptTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.805 s <<< FAILURE! - in tqs.FirstScriptTest
+eightComponents  Time elapsed: 11.766 s  <<< ERROR!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Error communicating with the remote browser. It may have died.
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.15.0-60-generic', java.version: '17.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [06899046370488ecae3d4a2eeb329474, get {url=https://www.selenium.dev/selenium/web/web-form.html}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.96, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: /tmp/.com.google.Chrome.H2p8tu}, goog:chromeOptions: {debuggerAddress: localhost:35587}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:35587/devtoo..., se:cdpVersion: 110.0.5481.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 06899046370488ecae3d4a2eeb329474
+	at tqs.FirstScriptTest.eightComponents(FirstScriptTest.java:18)
+Caused by: java.io.UncheckedIOException: org.asynchttpclient.exception.RemotelyClosedException: Remotely closed
+	at tqs.FirstScriptTest.eightComponents(FirstScriptTest.java:18)
+Caused by: org.asynchttpclient.exception.RemotelyClosedException: Remotely closed
+

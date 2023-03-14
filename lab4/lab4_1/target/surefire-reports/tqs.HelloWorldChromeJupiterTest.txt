@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: tqs.HelloWorldChromeJupiterTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 21.245 s <<< FAILURE! - in tqs.HelloWorldChromeJupiterTest
+test  Time elapsed: 21.245 s  <<< ERROR!
+org.openqa.selenium.WebDriverException: 
+unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: chrome=110.0.5481.96)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.15.0-60-generic', java.version: '17.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e899a542c21e256f90e05df8412b069f, get {url=https://bonigarcia.dev/selenium-webdriver-java/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.96, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: /tmp/.com.google.Chrome.H8L1Bv}, goog:chromeOptions: {debuggerAddress: localhost:46657}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:46657/devtoo..., se:cdpVersion: 110.0.5481.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e899a542c21e256f90e05df8412b069f
+	at tqs.HelloWorldChromeJupiterTest.test(HelloWorldChromeJupiterTest.java:30)
+
