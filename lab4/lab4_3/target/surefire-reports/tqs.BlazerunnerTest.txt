@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tqs.BlazerunnerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.739 s - in tqs.BlazerunnerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 39.717 s - in tqs.BlazerunnerTest

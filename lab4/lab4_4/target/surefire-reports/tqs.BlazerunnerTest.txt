@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: tqs.BlazerunnerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.183 s <<< FAILURE! - in tqs.BlazerunnerTest
+blazerunner  Time elapsed: 4.111 s  <<< ERROR!
+org.junit.jupiter.api.extension.ParameterResolutionException: Failed to resolve parameter [org.openqa.selenium.WebDriver arg0] in method [public void tqs.BlazerunnerTest.initializeDriver(org.openqa.selenium.WebDriver)]: There was an error creating WebDriver object for Chrome
+Caused by: io.github.bonigarcia.wdm.config.WebDriverManagerException: There was an error creating WebDriver object for Chrome
+Caused by: java.lang.RuntimeException: java.io.IOException: com.sun.jna.LastErrorException: [2] No such file or directory
+Caused by: java.io.IOException: com.sun.jna.LastErrorException: [2] No such file or directory
+Caused by: com.sun.jna.LastErrorException: [2] No such file or directory
+
