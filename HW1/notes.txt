@@ -1,0 +1,10 @@
+weatherapi API Key: da7106a4963a4260a80141224232303
+
+http://api.weatherapi.com/v1/current.json?key=da7106a4963a4260a80141224232303&q=London&aqi=yes&alerts=no
+https://api.weatherapi.com/v1/forecast.json?key=da7106a4963a4260a80141224232303&q=London&aqi=yes&alerts=no&dt=2023-03-25
+
+days=2 means tomorrow
+
+
+getambee api key: 409adc553b46f90026df630cb7da810dcdce6ba3ff58974323263708beae21eb
+base url https://api.ambeedata.com/latest/by-lat-lng?lat=12&lng=77

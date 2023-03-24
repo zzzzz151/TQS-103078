@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Air quality app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body style="margin-top:20px">
+    <div class="container">
+      <h1>TQS 2023 HW1 - Air quality app</h1>
+      <br />
+      <form>
+        <div class="form-group">
+          <label for="selectCity">Select city</label>
+          <select class="form-control" id="selectCity">
+            <option value="Lisbon">Lisbon</option>
+            <option value="London">London</option>
+            <option value="Paris">Paris</option>
+            <option value="Madrid">Madrid</option>
+            <option value="New York">New York</option>
+          </select>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="selectDay">Select day</label>
+          <select class="form-control" id="selectDay">
+            <option value="1days" id="today">Today</option>
+            <option value="2days" id="tomorrow">Tomorrow</option>
+          </select>
+        </div>
+        <br />
+        <button type="button" class="btn btn-primary" onclick="getAirQuality()">Get air quality</button>
+      </form>
+    </div>
+    <script>
+      Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      
+      function dateToStr(date)
+      {
+        let day = date.getDate();
+        let strDay = day.toString();
+        if (day <= 9)
+          strDay = "0" + day;
+        let month = date.getMonth() + 1;
+        let strMonth = month.toString();
+        if (month <= 9)
+          strMonth = "0" + month;
+        let year = date.getFullYear();
+        return year + "-" + strMonth + "-" + strDay;
+      }
+      
+      let currentDate = new Date();
+      document.getElementById("today").text = "Today" + " (" + dateToStr(currentDate) + ")";
+      document.getElementById("today").value = dateToStr(currentDate);
+      document.getElementById("tomorrow").text = "Tomorrow " + " (" + dateToStr(currentDate.addDays(1)) + ")";
+      document.getElementById("tomorrow").value = dateToStr(currentDate.addDays(1));
+      
+      let selectDay =  document.getElementById("selectDay");
+      for (let i = 2; i<=2; i++){ // switch to i<=14 if needed
+          let newDate = currentDate.addDays(i);
+          let opt = document.createElement('option');
+          opt.value = dateToStr(newDate);
+          opt.innerHTML = i + " days from now" + " (" + dateToStr(newDate) + ")";
+          selectDay.appendChild(opt);
+      }
+      
+      function getAirQuality()
+      {
+        let selectCity = document.getElementById("selectCity");
+        let city = selectCity.value;
+        let fullDomain = location.protocol + '//' + location.host;
+        let redirect = fullDomain + "/air-quality?city=" + city + "&date=" + selectDay.value;
+        //console.log( redirect );
+        window.location.href = redirect;
+      }
+    </script>
+  </body>
+</html>
