@@ -1,0 +1,215 @@
+{
+  "id": "740ba9de-39f0-49a5-bdd9-f38800366fa6",
+  "version": "2.0",
+  "name": "HW1",
+  "url": "http://localhost:8080/",
+  "tests": [{
+    "id": "31f17231-1d49-4ff0-93fb-d1d08605becc",
+    "name": "MadridTomorrow",
+    "commands": [{
+      "id": "1e1a8ede-53e9-43c4-ad24-635799de8796",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "430e81e8-af6e-4e18-b183-671f9ad1b317",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1846x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6f72bce3-ce91-4496-b427-c9050fdfa1f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=selectCity",
+      "targets": [
+        ["id=selectCity", "id"],
+        ["css=#selectCity", "css:finder"],
+        ["xpath=//select[@id='selectCity']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d8a8321-4610-4cb3-9abf-1bb0a83bfda1",
+      "comment": "",
+      "command": "select",
+      "target": "id=selectCity",
+      "targets": [],
+      "value": "label=Madrid"
+    }, {
+      "id": "c2c739ed-19f7-4ac5-81f5-a8fca59c4a63",
+      "comment": "",
+      "command": "click",
+      "target": "id=selectDay",
+      "targets": [
+        ["id=selectDay", "id"],
+        ["css=#selectDay", "css:finder"],
+        ["xpath=//select[@id='selectDay']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "150aea71-39ea-4caf-9d8c-64ff8b86ff76",
+      "comment": "",
+      "command": "select",
+      "target": "id=selectDay",
+      "targets": [],
+      "value": "label=Tomorrow (2023-03-25)"
+    }, {
+      "id": "fe98ecc6-57f5-4d14-b59c-4ee50b5361a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get air quality')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c97ed4eb-e336-41cc-b193-2a9cb1eff94b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1 > span:nth-child(1)",
+      "targets": [
+        ["css=h1 > span:nth-child(1)", "css:finder"],
+        ["xpath=//h1/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Madrid')]", "xpath:innerText"]
+      ],
+      "value": "Madrid"
+    }, {
+      "id": "0885770a-feae-4914-a5b8-ba0d3beabd4e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1 > span:nth-child(2)",
+      "targets": [
+        ["css=h1 > span:nth-child(2)", "css:finder"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'2023-03-25')]", "xpath:innerText"]
+      ],
+      "value": "2023-03-25"
+    }, {
+      "id": "03c56095-c182-4382-8ee9-d95020ec0f04",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(3)",
+      "targets": [
+        ["css=p:nth-child(3)", "css:finder"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'CO (carbon monoxide): 342.07 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab5ccbb3-31de-47d2-8f81-3437f6c8e17c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(4)",
+      "targets": [
+        ["css=p:nth-child(4)", "css:finder"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'O3 (ozone): 60.91 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "043fd6b4-5f5a-4af0-8747-e19ac1f6ba1c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(5)",
+      "targets": [
+        ["css=p:nth-child(5)", "css:finder"],
+        ["xpath=//p[3]", "xpath:position"],
+        ["xpath=//p[contains(.,'NO2 (Nitrogen dioxide): 13.2 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "609e158f-076f-48b3-8b41-569fc4b8df35",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(6)",
+      "targets": [
+        ["css=p:nth-child(6)", "css:finder"],
+        ["xpath=//p[4]", "xpath:position"],
+        ["xpath=//p[contains(.,'SO2 (Sulphur dioxide): 0.68 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca03b1d0-509d-497b-a880-990212d31eeb",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(7)",
+      "targets": [
+        ["css=p:nth-child(7)", "css:finder"],
+        ["xpath=//p[5]", "xpath:position"],
+        ["xpath=//p[contains(.,'PM2.5: 5.58 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddb075a4-2092-4616-8295-2506c98b2581",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(8)",
+      "targets": [
+        ["css=p:nth-child(8)", "css:finder"],
+        ["xpath=//p[6]", "xpath:position"],
+        ["xpath=//p[contains(.,'PM10: 7.55 μg/m3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5f30d8e-8cf2-4ef0-8a8d-fcd1d5f57d6e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(3) > span",
+      "targets": [],
+      "value": "342.07"
+    }, {
+      "id": "9765e990-5856-4275-8c14-76f394d18594",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(4) > span",
+      "targets": [],
+      "value": "342.07"
+    }, {
+      "id": "f2d22a55-8c6a-4bae-8e00-2ddfbcfcb5ab",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(5) > span",
+      "targets": [],
+      "value": "342.07"
+    }, {
+      "id": "dd7b1d76-6ff5-4cd8-aaf3-45a3b8b2bb0e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(6) > span",
+      "targets": [],
+      "value": "342.07"
+    }, {
+      "id": "ea54fc8f-b29f-4ee3-88ba-9e517dc5e04b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(7) > span",
+      "targets": [],
+      "value": "342.07"
+    }, {
+      "id": "5f1b1230-e7e4-41d7-b767-f76d49d764a7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(8) > span",
+      "targets": [],
+      "value": "342.07"
+    }]
+  }],
+  "suites": [{
+    "id": "7f5662c6-4488-44f9-8f9e-97fefece8cbc",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["31f17231-1d49-4ff0-93fb-d1d08605becc"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
