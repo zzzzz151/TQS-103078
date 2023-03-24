@@ -1,6 +1,7 @@
 package tqs.airqualityapp;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -44,34 +45,33 @@ public class Cache<K, V> {
                 hits++;
                 entry.setAccessTime(System.currentTimeMillis());
                 entry.resetCreationTime(); // refresh TTL
-                Utils.getLogger().debug("Accessed key " + key + " in cache");
-                //System.out.println("Accessed key " + key + " in cache");
+                Utils.log("Hit key " + key + " in cache");
                 return entry.getValue();
             } else {
                 cache.remove(key);
             }
         }
+        Utils.log("Missed key " + key + " in cache");
         misses++;
         return null;
     }
 
     public synchronized void put(K key, V value) {
         cache.put(key, new CacheEntry<>(value, timeToLive));
-        Utils.getLogger().debug("Put key " + key + " in cache");
-        //System.out.println("Put key " + key + " in cache");
+        Utils.log("Put key " + key + " in cache");
     }
 
     private synchronized void cleanup() {
-        for (Entry<K, CacheEntry<V>> entry : cache.entrySet())
-            if (entry.getValue().isExpired())
-            {
-                cache.entrySet().remove(entry);
-                Utils.getLogger().debug("Removed key " + entry.getKey() + " from cache");
-                //System.out.println("Removed key " + entry.getKey() + " from cache");
-            }
-        Set<Entry<K, CacheEntry<V>> expiredItems = new Set<Entry<K, CacheEntry<V>>();
-        for (Entry<K, CacheEntry<V>> entry : )
-        //cache.entrySet().removeIf(entry -> entry.getValue().isExpired(now));
+        Set<K> expiredKeys = new HashSet<K>();
+        for (K key : cache.keySet())
+            if (cache.get(key).isExpired())
+                expiredKeys.add(key);
+        for (K expiredKey : expiredKeys) {
+            cache.remove(expiredKey);
+            Utils.log("Removed key " + expiredKey + " from cache");
+        }
+
+        // cache.entrySet().removeIf(entry -> entry.getValue().isExpired(now));
     }
 
     public synchronized long getRequests() {
@@ -86,8 +86,7 @@ public class Cache<K, V> {
         return misses;
     }
 
-    public long getTimeToLiveSeconds()
-    {
+    public long getTimeToLiveSeconds() {
         return timeToLive / 1000;
     }
 
@@ -112,8 +111,7 @@ public class Cache<K, V> {
             return creationTime;
         }
 
-        public void resetCreationTime()
-        {
+        public void resetCreationTime() {
             this.creationTime = System.currentTimeMillis();
         }
 

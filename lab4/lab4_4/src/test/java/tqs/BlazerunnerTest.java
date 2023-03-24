@@ -9,7 +9,7 @@ import io.github.bonigarcia.seljup.SeleniumJupiter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.Dimension;;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
 import static io.github.bonigarcia.seljup.BrowserType.CHROME;

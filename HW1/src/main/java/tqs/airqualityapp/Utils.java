@@ -2,14 +2,12 @@ package tqs.airqualityapp;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.time.LocalDateTime; 
 
 public class Utils {
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-    private static final Logger logger = LogManager.getLogger(AirQualityApplication.class);
+    private static DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 
     public static LocalDate strToDate(String date) {
         return LocalDate.parse(date, formatter);
@@ -25,7 +23,8 @@ public class Utils {
         return Math.round(val * a) / a;
     }
 
-    public static Logger getLogger() {
-        return logger;
+    public static void log(String message)
+    {
+        System.out.println(formatter2.format(LocalDateTime.now()) + " " + message);
     }
 }

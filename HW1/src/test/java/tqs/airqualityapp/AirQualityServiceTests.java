@@ -27,13 +27,13 @@ class AirQualityServiceTests {
 
     @BeforeEach
     public void setUp() throws Exception {
-        String url = "https://api.weatherapi.com/v1/forecast.json?key=da7106a4963a4260a80141224232303&aqi=yes&alerts=no&q=Paris&dt=2023-03-24";
+        String parisUrlWithParameters = "https://api.weatherapi.com/v1/forecast.json?key=da7106a4963a4260a80141224232303&aqi=yes&alerts=no&q=Paris&dt=2023-03-24";
 
         ClassPathResource resource = new ClassPathResource("static/expectedJsonAirQualityService.json");
         String strJson = StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
         JSONObject expectedJson = new JSONObject(strJson);
 
-        Mockito.when(airQualityService.getJson(new URL(url))).thenReturn(expectedJson);
+        Mockito.when(airQualityService.getJson(new URL(parisUrlWithParameters))).thenReturn(expectedJson);
 
     }
 
