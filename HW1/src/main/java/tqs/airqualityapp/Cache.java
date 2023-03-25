@@ -28,7 +28,7 @@ public class Cache<K, V> {
                     Thread.sleep(1 / 10);
                     cleanup();
                 } catch (InterruptedException e) {
-                    return;
+                    Thread.currentThread().interrupt(); // restore the interrupted status
                 }
             }
         });
