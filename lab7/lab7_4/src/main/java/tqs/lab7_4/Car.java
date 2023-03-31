@@ -1,4 +1,4 @@
-package tqs.lab7_3;
+package tqs.lab7_4;
 
 import java.util.Random;
 

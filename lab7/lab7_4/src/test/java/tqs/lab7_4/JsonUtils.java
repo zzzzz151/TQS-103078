@@ -1,4 +1,4 @@
-package tqs.lab3_2;
+package tqs.lab7_4;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;

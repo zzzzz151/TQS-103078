@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ApplicationTests {
 
   @Container
-  public static PostgreSQLContainer container = new PostgreSQLContainer()
+  public static PostgreSQLContainer container = new PostgreSQLContainer("postgres:latest")
       .withUsername("duke")
       .withPassword("password")
       .withDatabaseName("test");
@@ -42,10 +42,9 @@ class ApplicationTests {
   @Test
   void insertThenReadCar()
   {
-    Car car = new Car("Ford", "Mustang");
-    car.setId(800);
+    Car car = new Car(800, "Ford", "Mustang");
     repository.save(car);
-    Car retrieved = repository.findById((long)800).get();
+    Car retrieved = repository.findById(800).get();
     assertEquals(car, retrieved);
   }
 }

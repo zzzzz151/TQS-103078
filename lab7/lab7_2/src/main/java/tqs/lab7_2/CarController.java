@@ -20,7 +20,6 @@ public class CarController {
     public ResponseEntity<Car> createCar(@RequestBody Car car) {
         HttpStatus status = HttpStatus.CREATED;
         Car saved = service.save(car);
-        System.out.println("SAVED:: " + saved);
         return new ResponseEntity<>(saved, status);
     }
 
