@@ -12,8 +12,8 @@ jobs:
       with:
         java-version: 17
     - name: Compile
-      run: mvn clean install --file HW1/pom.xml
+      run: mvn clean install -DskipTests --file HW1/pom.xml
     - name: Run tests
       run: mvn test --file HW1/pom.xml
     - name: Run integration tests
-      run: mvn failsafe:integration-test
+      run: mvn failsafe:integration-test --file HW1/pom.xml
