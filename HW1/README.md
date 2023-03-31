@@ -26,8 +26,9 @@ To run the 7 tests, run this command in this folder
 mvn test
 ```
 
-To run the 2 integration tests, run this command in this folder
+To run the 2 integration tests, run these 2 commands in this folder
 
 ```
+mvn clean install -DskipTests
 mvn failsafe:integration-test
 ```

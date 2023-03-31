@@ -51,7 +51,7 @@ class AirQualityServiceTests {
     }
 
     @Test
-    public void whenGetInvalidAirQulityThenReturnInvalidObject()
+    public void whenGetInvalidAirQualityThenReturnInvalidObject()
     {
         AirQualityRecord airQuality1 = airQualityService.getAirQuality("Error city", date);
 
