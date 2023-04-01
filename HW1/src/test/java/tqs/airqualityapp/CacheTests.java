@@ -10,15 +10,15 @@ import java.time.LocalDate;
 public class CacheTests {
 
     @Test
-    public void testCache() throws InterruptedException
-    {
-        AirQualityRecord londonRecord = new AirQualityRecord("London", LocalDate.of(2023,3,24) );
+    public void testCache() throws InterruptedException {
+        AirQualityRecord londonRecord = new AirQualityRecord("London", LocalDate.of(2023, 3, 24));
         londonRecord.setCo(5.71);
-        AirQualityRecord newYorkRecord = new AirQualityRecord("New York", LocalDate.of(2023,3,25) );
+        AirQualityRecord newYorkRecord = new AirQualityRecord("New York", LocalDate.of(2023, 3, 25));
         CityAndDate london = new CityAndDate(londonRecord.getCity(), londonRecord.getDate());
         CityAndDate newYork = new CityAndDate(newYorkRecord.getCity(), newYorkRecord.getDate());
 
-        // Assert item TTL is refreshed when hit and that an item is gone after TTL but not before TTL
+        // Assert item TTL is refreshed when hit and that an item is gone after TTL but
+        // not before TTL
         Cache<CityAndDate, AirQualityRecord> cache = new Cache<CityAndDate, AirQualityRecord>(1);
         cache.put(london, londonRecord);
         cache.put(newYork, newYorkRecord);
@@ -28,12 +28,11 @@ public class CacheTests {
         // Slept a total of 1.3s
         assertNull(cache.get(newYork));
         assertNotNull(cache.get(london));
-        
+
         assertEquals(cache.getTimeToLiveSeconds(), 1);
         assertEquals(cache.getRequests(), 3);
         assertEquals(cache.getHits(), 2);
         assertEquals(cache.getMisses(), 1);
-
 
     }
 }

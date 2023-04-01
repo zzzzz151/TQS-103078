@@ -27,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class MadridTomorrowTest {
+public class SeleniumTests {
   @LocalServerPort
   private int port;
 
@@ -58,6 +58,24 @@ public class MadridTomorrowTest {
   }
 
   @Test
+  public void forecastDayOptions()
+  {
+        driver.get("http://localhost:" + port);
+
+        driver.manage().window().setSize(new Dimension(1846, 1040));    
+  
+        driver.findElement(By.id("selectDay")).click();
+    
+        // assert day selection options
+        WebElement elem = driver.findElement(By.id("selectDay"));
+        Select select = new Select(elem);
+        List<WebElement> options = select.getOptions();
+        assertEquals(options.get(0).getText(), "Today (" + Utils.dateToStr(LocalDate.now()) + ")");
+        assertEquals(options.get(1).getText(), "Tomorrow (" + Utils.dateToStr(LocalDate.now().plusDays(1)) + ")");
+        assertEquals(options.get(2).getText(), "2 days from now (" + Utils.dateToStr(LocalDate.now().plusDays(2)) + ")");
+  }
+
+  @Test
   public void madridTomorrow() {
     // Test name: MadridTomorrow
     // Step # | name | target | value
@@ -82,16 +100,11 @@ public class MadridTomorrowTest {
     // 5 | click | id=selectDay |
     driver.findElement(By.id("selectDay")).click();
 
-    // assert day selection options
-    WebElement elem = driver.findElement(By.id("selectDay"));
-    Select select = new Select(elem);
-    List<WebElement> options = select.getOptions();
-    assertEquals(options.get(0).getText(), "Today (" + Utils.dateToStr(LocalDate.now()) + ")");
-    assertEquals(options.get(1).getText(), "Tomorrow (" + strTomorrow + ")");
-    assertEquals(options.get(2).getText(), "2 days from now (" + Utils.dateToStr(LocalDate.now().plusDays(2)) + ")");
-
     // 6 | select | id=selectDay | label=Tomorrow (strTomorrow)
     {
+      WebElement elem = driver.findElement(By.id("selectDay"));
+      Select select = new Select(elem);
+      List<WebElement> options = select.getOptions();
       options.get(1).click();
     }
 

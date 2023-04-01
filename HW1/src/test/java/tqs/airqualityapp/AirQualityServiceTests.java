@@ -15,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.isNull;
 
 @ExtendWith(MockitoExtension.class)
 class AirQualityServiceTests {
@@ -51,16 +53,9 @@ class AirQualityServiceTests {
     }
 
     @Test
-    public void whenGetInvalidAirQualityThenReturnInvalidObject()
-    {
-        AirQualityRecord airQuality1 = airQualityService.getAirQuality("Error city", date);
-
-        assertThat(airQuality1.getCo()).isEqualTo(-1);
-        assertThat(airQuality1.getNo2()).isEqualTo(-1);
-        assertThat(airQuality1.getSo2()).isEqualTo(-1);
-        assertThat(airQuality1.getO3()).isEqualTo(-1);
-        assertThat(airQuality1.getPm2_5()).isEqualTo(-1);
-        assertThat(airQuality1.getPm10()).isEqualTo(-1);
+    public void whenGetInvalidAirQualityThenReturnInvalidObject() {
+        AirQualityRecord airQuality = airQualityService.getAirQuality("Error city", date);
+        assertNull(airQuality);
 
     }
 

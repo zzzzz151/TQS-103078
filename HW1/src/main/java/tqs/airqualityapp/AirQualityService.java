@@ -18,7 +18,7 @@ public class AirQualityService {
 
     public String addParametersToApiUrl(String city, String date) {
         city = city.replace(" ", "%20");
-        //System.out.println(apiBaseUrl + "&q=" + city + "&dt=" + date);
+        // System.out.println(apiBaseUrl + "&q=" + city + "&dt=" + date);
         return apiBaseUrl + "&q=" + city + "&dt=" + date;
     }
 
@@ -58,24 +58,38 @@ public class AirQualityService {
             JSONObject forecastDay = json.getJSONObject("forecast").getJSONArray("forecastday").getJSONObject(0);
             airQuality = forecastDay.getJSONObject("day").getJSONObject("air_quality");
         } catch (Exception e) {
-            return record;
+            return null;
         }
-        if (!airQuality.has("co"))
-            return record;
 
-        double co = airQuality.getDouble("co");
-        double no2 = airQuality.getDouble("no2");
-        double o3 = airQuality.getDouble("o3");
-        double so2 = airQuality.getDouble("so2");
-        double pm2_5 = airQuality.getDouble("pm2_5");
-        double pm10 = airQuality.getDouble("pm10");
+        if (airQuality.has("co")) {
+            double co = airQuality.getDouble("co");
+            record.setCo(Utils.round(co, 2));
+        }
 
-        record.setCo(Utils.round(co, 2));
-        record.setNo2(Utils.round(no2, 2));
-        record.setO3(Utils.round(o3, 2));
-        record.setSo2(Utils.round(so2, 2));
-        record.setPm2_5(Utils.round(pm2_5, 2));
-        record.setPm10(Utils.round(pm10, 2));
+        if (airQuality.has("no2")) {
+            double no2 = airQuality.getDouble("no2");
+            record.setNo2(Utils.round(no2, 2));
+        }
+
+        if (airQuality.has("o3")) {
+            double o3 = airQuality.getDouble("o3");
+            record.setO3(Utils.round(o3, 2));
+        }
+
+        if (airQuality.has("so2")) {
+            double so2 = airQuality.getDouble("so2");
+            record.setSo2(Utils.round(so2, 2));
+        }
+
+        if (airQuality.has("pm2_5")) {
+            double pm2_5 = airQuality.getDouble("pm2_5");
+            record.setPm2_5(Utils.round(pm2_5, 2));
+        }
+
+        if (airQuality.has("pm10")) {
+            double pm10 = airQuality.getDouble("pm10");
+            record.setPm10(Utils.round(pm10, 2));
+        }
 
         cache.put(key, record);
         return record;

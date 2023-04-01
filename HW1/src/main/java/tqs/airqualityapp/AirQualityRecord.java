@@ -7,13 +7,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class AirQualityRecord {
     private String city;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     private double co, no2, o3, so2, pm2_5, pm10;
 
-    public AirQualityRecord(String city, LocalDate date)
-    {
+    public AirQualityRecord(String city, LocalDate date) {
         this.city = city;
         this.date = date;
         this.co = -1;
