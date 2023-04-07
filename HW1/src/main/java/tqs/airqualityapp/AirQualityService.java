@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AirQualityService {
 
-    private final String apiBaseUrl = "https://api.weatherapi.com/v1/forecast.json?key=da7106a4963a4260a80141224232303&aqi=yes&alerts=no";
+    private final String apiBaseUrl = "https://api.weatherapi.com/v1/forecast.json?key=bcb137dd70f44b329cc154231230704&aqi=yes&alerts=no";
 
     public String addParametersToApiUrl(String city, LocalDate date) {
         return addParametersToApiUrl(city, Utils.dateToStr(date));
